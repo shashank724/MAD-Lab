@@ -1,0 +1,92 @@
+package com.example.shashank;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
+import android.widget.ImageView;
+
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Bitmap bg = Bitmap.createBitmap(720, 1280, Bitmap.Config.ARGB_8888);
+
+        //Setting the Bitmap as background for the ImageView
+        ImageView i = (ImageView) findViewById(R.id.imageView);
+        i.setBackgroundDrawable(new BitmapDrawable(bg));
+
+        //Creating the Canvas Object
+        Canvas canvas = new Canvas(bg);
+
+        //Creating the Paint Object and set its color & TextSize
+        Paint paint = new Paint();
+
+
+        paint.setTextSize(50);
+        paint.setColor(Color.BLACK);
+        //To draw a Rectangle
+        canvas.drawText("Rectangle", 420, 150, paint);
+        paint.setColor(Color.RED);
+
+        canvas.drawRect(100, 500, 200, 700, paint);
+
+        //To draw a Circle
+        paint.setColor(Color.BLACK);
+
+        canvas.drawText("Circle", 120, 150, paint);
+        paint.setColor(Color.GREEN);
+        canvas.drawCircle(400, 800, 150, paint);
+
+        //To draw a Square
+        paint.setColor(Color.BLACK);
+
+        canvas.drawText("Square", 120, 800, paint);
+        paint.setColor(Color.YELLOW);
+
+        canvas.drawRect(100, 200, 200, 300, paint);
+
+        paint.setColor(Color.BLACK);
+        canvas.drawText("Line", 480, 900, paint);
+        paint.setColor(Color.BLUE);
+
+        canvas.drawLine(200, 300, 200, 400, paint);
+    }
+}
+
+Xml file
+
+
+
+
+?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="411dp"
+        android:layout_height="656dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        //app:srcCompat="@mipmap/ic_launcher"
+    </ImageView>
+</android.support.constraint.ConstraintLayout>
+
